@@ -1,0 +1,302 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>AdminLTE 3 | Dashboard 3</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to to the body tag
+to get the desired effect
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar navbar-primary navbar-dark ">
+            <!-- Brand Logo -->
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+
+                                <p class="font-weight-bold ">
+
+
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+
+                                <h4 class="text-bold">
+                                    <i class="nav-icon fas fa-10x fa-address-card "></i>
+                                    Admin Paneli
+                                </h4>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+
+                                <p class="font-weight-bold ">
+
+
+                                </p>
+                            </a>
+                        </li>
+                        @if (User.IsInRole("A"))
+                        {
+                            <li class="nav-item">
+                                <a href="/AdminCategory/Index" class="nav-link active">
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>
+                                        Kategoriler
+
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
+
+                        <li class="nav-item">
+                            <a href="/AdminHeading/Index" class="nav-link active">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Başlıklar
+
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="~/AdminWriter/Listing" class="nav-link active">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Yazarlar
+
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Grafikler
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/charts/chartjs.html" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Grafik 1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/flot.html" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Grafik 2</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/inline.html" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Grafik 3</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    Hakkımızda
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/AdminContact/Index" class="nav-link active">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    İletişim & Mesajlar
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Yazılar
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+
+                                <p class="font-weight-bold">
+                                    Detay
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/calendar.html" class="nav-link active">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>
+                                    Yetkilendirmeler
+
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/gallery.html" class="nav-link active">
+                                <i class="nav-icon far fa-image"></i>
+                                <p>
+                                    Galeri
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="/ErrorPage/Page404/" class="nav-link active">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    Hata Sayfaları
+
+                                </p>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    Çıkış Yap
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                        </li>
+
+
+                        <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <div class="content">
+
+
+                @RenderBody()
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+
+        <!-- /.control-sidebar -->
+        <!-- Main Footer -->
+
+
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/js/adminlte.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/js/demo.js"></script>
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/js/pages/dashboard3.js"></script>
+
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/js/demo.js"></script>
+    <!-- Summernote -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- Page Script -->
+    <!-- Ekko Lightbox -->
+    <script src="~/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+    <!-- AdminLTE App -->
+    <!-- AdminLTE for demo purposes -->
+    <!-- Filterizr-->
+    <script src="~/AdminLTE-3.0.4/plugins/filterizr/jquery.filterizr.min.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
+
+            $('.filter-container').filterizr({ gutterPixels: 3 });
+            $('.btn[data-filter]').on('click', function () {
+                $('.btn[data-filter]').removeClass('active');
+                $(this).addClass('active');
+            });
+        })
+
+
+
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote()
+        })</script>
+</body>
+</html>

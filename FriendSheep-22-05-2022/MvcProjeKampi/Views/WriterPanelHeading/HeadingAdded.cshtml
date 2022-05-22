@@ -1,0 +1,62 @@
+﻿@model EntityLayer.Concrete.Heading
+
+@{
+    ViewBag.Title = "HeadingAdded";
+    Layout = "~/Views/Shared/_WriterNewLayout.cshtml";
+}
+
+
+<link href="~/Extra/headingaddfor.css" rel="stylesheet" />
+
+
+<div class="container mt-xl-5 mb-5">
+    <div class="d-flex justify-content-center pt-5">
+        <h2 class="font-weight-bold " style="color:white">Hadi Başlık Oluşturalım !</h2>
+    </div>
+
+    <br />
+
+    <div class="d-flex flex-row justify-content-center">
+        @using (Html.BeginForm("HeadingAdded", "WriterPanelHeading", FormMethod.Post))
+        {
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Başlık</label>
+                            <div class="input-field"> <span class="fa fa-user-o p-2 border-right"></span> <input type="text" required name="HeadingName"> </div>
+                        </div>
+
+                        <br />
+
+                        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.VC, new { @class = "input-field" })
+                    </div>
+                    <br />
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="msg">İçerik</label>
+                            <div class="input-field bg-light"> <textarea name="HeadingFirstContent" id="msg" cols="10" rows="9" class="form-control bg-light" placeholder="İçeriğiniz"></textarea> </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="d-flex flex-row justify-content-center w-100"> <input type="submit" value="Paylaş" class="btn"> </div>
+                    @*<button class="d-flex flex-row justify-content-center w-100" type="submit">Gönder</button>*@
+
+                </div>
+            </div>
+        }
+    </div>
+    <br />
+    <br />
+
+    @if (TempData["AlertMessage1"] != null)
+    {<div class="alert alert-success">
+         <strong style="margin-left:600px;color:blueviolet;font-weight:bold"> Başarılı ! @TempData["AlertMessage1"]</strong> 
+        </div>
+
+    }
+</div>
+
+
+

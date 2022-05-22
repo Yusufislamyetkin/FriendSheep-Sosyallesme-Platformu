@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "IndexFree";
+    Layout = "~/Views/Shared/_WriterNewLayout.cshtml";
+}
+
+@using EntityLayer.Concrete
+@model List<Activity>
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link href="~/Extra/Activitycs.css" rel="stylesheet" />
+
+
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <div class="container">
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+
+
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto" style="color:black"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link " style="color:black;font-weight:bold" aria-current="page" href="#">İstanbul</a> </div>
+
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" style="color:black;font-weight:bold" aria-current="page" href="#">Ankara</a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" style="color:black;font-weight:bold" aria-current="page" href="#">İzmir</a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" style="color:black;font-weight:bold" aria-current="page" href="#">Eskişehir</a> </div>
+
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="#"></a> <a class="nav-link" aria-current="page" href="#"></a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="/Activity/IndexNotFree/"></a> <a class="nav-link" style="color:black;font-weight:bold" aria-current="page" href="#">Ücretli</a> </div>
+                <div class="navbar-nav me-auto"> <a class="nav-link active " aria-current="page" href="/Activity/IndexFree/"></a> <a class="nav-link" style="color:black;font-weight:bold" aria-current="page" href="#">Ücretsiz</a> </div>
+
+
+            </div>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+</body>
+
+<div class="container">
+
+
+
+    <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+
+
+            <ul class="event-list">
+
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <time datetime="@item.activityDateTime">
+                            <span class="day">@item.activityDateTime.Day</span>
+                            <span class="month">@item.activityDateTime.ToString("MMMM")</span>
+                            <span class="year">2014</span>
+                            <span class="time">8:00 PM</span>
+                        </time>
+                        <img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
+                        <div class="info">
+                            <h2 class="title">@item.activityHeading</h2>
+
+                            <p class="desc">@item.activityContent</p>
+                            <br />
+                            <p class="desc" style="font-weight:bold;margin-left:13px">  @item.activityCity</p>
+                            <ul>
+                                @if (item.activityPriceCtrl == true)
+                                {
+                                    <li style="width:33%;">Ücretli Etkinlik <span class="glyphicon glyphicon-ok"></span></li>
+                                }
+                                else
+                                {
+                                    <li style="width:33%;">Ücretsiz Etkinlik <span class="glyphicon glyphicon-ok"></span></li>
+                                }
+
+                                <li style="width:34%;">Paylaşan :@item.Writer.WriterName <span class="fa fa-send"></span></li>
+                                @if (item.activityPrice == 0)
+                                {
+                                    <li style="width:33%;"> <span class="glyphicon glyphicon-ok"></span></li>
+                                }
+                                else
+                                {
+                                    <li style="width:33%;">@item.activityPrice <span class="fa fa-money"></span></li>
+                                }
+
+                            </ul>
+                        </div>
+
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>

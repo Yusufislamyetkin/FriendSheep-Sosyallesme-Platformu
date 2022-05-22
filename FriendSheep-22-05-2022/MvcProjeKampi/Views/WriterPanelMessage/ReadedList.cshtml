@@ -1,0 +1,148 @@
+﻿@using EntityLayer.Concrete
+@model List<Message>
+
+@{
+    ViewBag.Title = "NotReadedList";
+    Layout = "~/Views/Shared/_WriterNewLayout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Mailbox</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+
+        <section class="card-header">
+            <div>
+                <br />
+            </div>
+        </section>
+
+
+        <section class="content">
+            <div class="row">
+                @Html.Action("MessageViewList", "WriterPanelMessage")
+
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Okunmamış Mesajlar</h3>
+
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" placeholder="Mailde Ara">
+                                    <div class="input-group-append">
+                                        <div class="btn btn-primary">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <div class="mailbox-controls">
+                                <!-- Check all button -->
+                                <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                                    <i class="far fa-square"></i>
+                                </button>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                                </div>
+                                <!-- /.btn-group -->
+                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                                <div class="float-right">
+                                    1-50/200
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                                    </div>
+                                    <!-- /.btn-group -->
+                                </div>
+                                <!-- /.float-right -->
+                            </div>
+
+                            <div class="table-responsive mailbox-messages">
+                                @if (Model.Count == 0)
+                                {
+                                    <div class="text-center  text-purple"><h2 class="text-bold"> Hiç Okunmamış Mesajınız Yok :(</h2> </div>
+                                }
+                                @foreach (var item in Model)
+                                {
+                                    <table class="table table-hover table-striped">
+                                        <tbody>
+
+                                            <tr>
+                                                <td>
+                                                    <a href="/WriterPanelMessage/MoveTrashNotReaded/@item.MessageID" class="btn btn-danger btn-sm"> <i class="far fa-trash-alt"></i></a>
+                                                </td>
+
+                                                <td class="mailbox-name"><a href="/WriterPanelMessage/ReadedMessages/@item.MessageID">@item.SenderMail</a></td>
+                                                <td class="mailbox-subject">
+                                                    <b>@item.Subjet</b> -  @item.MessageContent.Substring(0, 10)
+                                                </td>
+                                                <td class="mailbox-attachment"></td>
+                                                <td class="mailbox-date">@item.MessageDatetime</td>
+                                            </tr>
+
+
+
+
+                                        </tbody>
+                                    </table>
+                                }
+                                <!-- /.table -->
+                            </div>
+                            <!-- /.mail-box-messages -->
+                        </div>
+                        <!-- /.card-body -->
+
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- Page Script -->
+    
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>

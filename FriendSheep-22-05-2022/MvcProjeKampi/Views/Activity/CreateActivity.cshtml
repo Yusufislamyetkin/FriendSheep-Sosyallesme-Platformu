@@ -1,0 +1,122 @@
+﻿@model EntityLayer.Concrete.Activity
+
+
+@{
+    ViewBag.Title = "CreateActivity";
+    Layout = "~/Views/Shared/_WriterNewLayout.cshtml";
+}
+
+
+
+
+<div>
+    @using (Html.BeginForm("CreateActivity", "Activity", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form-group">
+
+
+            <br />
+            <div style="margin-left:20px">
+                @Html.Label("Etkinlik Başlık")
+                @Html.TextBoxFor(x => x.activityHeading, new { @class = "form-control" })
+
+
+            </div>
+
+
+            <br />
+            <div style="margin-left:20px">
+                @Html.Label("Etkinlik içerik")
+                @Html.TextAreaFor(x => x.activityContent, new { @class = "form-control" })
+
+            </div>
+
+            <br />
+            <div style="margin-left:20px">
+                @Html.Label("Etkinlik Ücreti")
+                @Html.TextBoxFor(x => x.activityPrice, new { @class = "form-control" })
+
+            </div>
+
+            <br />
+            <div style="margin-left:20px">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Etkinlik Fotoğrafı</label>
+                    <input type="file"
+                           class="form-control"
+                           id="StudentImage"
+                           name="StudentImage"
+                           placeholder="Etkinlik İçin Fotoğraf Yükleyin"
+                           autofocus />
+                </div>
+            </div>
+
+
+
+            <br />
+
+            <div style="margin-left:20px;margin-bottom:-20px">
+
+                @Html.Label("Etkinlik Tarih")
+                @Html.TextBoxFor(x => x.activityDateTime, new { type = "date", @class = "form-control" })
+            </div>
+
+
+
+            <br />
+            <br />
+
+            <div style="margin-left:20px">
+                @Html.Label("Etkinlik Şehir")
+
+
+
+                @Html.DropDownList("activityCity",
+                                 new List<SelectListItem> {
+                                     new SelectListItem {
+                                        Text="İstanbul",
+                                        Value="İstanbul",
+                                      
+                                     },
+                                     new SelectListItem {
+                                        Text="Eskişehir",
+                                        Value="Eskişehir",
+
+                                     },
+                                        new SelectListItem {
+                                        Text="Ankara",
+                                        Value="Ankara",
+                                      
+                                     },
+                                     new SelectListItem {
+                                        Text="İzmir",
+                                        Value="İzmir",
+
+                                     },
+
+                                 }, "Şehri Seçiniz", new { @class = "form-control" })
+
+            </div>
+
+
+
+        </div>
+        <br />
+        <br />
+        <div style="margin-left:20px">
+            <button class="btn btn-success"> Kaydet </button>
+        </div>
+
+    }
+
+
+</div>
+
+<br />
+
+@if (TempData["AlertMessage"] != null)
+{<div class="alert alert-success ">
+        <strong style="margin-left:750px"> Başarılı ! </strong>@TempData["AlertMessage"]
+    </div>
+
+}

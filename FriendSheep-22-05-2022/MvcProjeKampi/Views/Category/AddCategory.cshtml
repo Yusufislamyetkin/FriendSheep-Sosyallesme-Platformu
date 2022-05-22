@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCategory</title>
+</head>
+<body>
+    <div> 
+       
+        @using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+            {
+
+              <div class="form-group">
+
+                  @Html.Label("Kategori Adı");
+                  @Html.TextBoxFor(x => x.CategoryName )
+                  @Html.ValidationMessageFor(x => x.CategoryName)
+                  <br />
+                  @Html.Label("Açıklamayı Giriniz")
+                  @Html.TextBoxFor(x=>x.CategoryDescription)
+                  @Html.ValidationMessageFor(x=>x.CategoryDescription)
+
+                  <br />
+
+                  <button class="btn-block">Kaydet</button>
+
+              </div>
+
+            }
+
+    </div>
+</body>
+</html>

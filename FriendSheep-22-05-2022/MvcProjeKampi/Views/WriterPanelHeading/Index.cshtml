@@ -1,0 +1,359 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_WriterNewLayout.cshtml";
+}
+
+
+
+@{ string color = "";}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Başlıklar </title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini" >
+    <!-- Site wrapper -->
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+
+
+
+    <section class="content-header">
+     
+    </section>
+
+    <!-- Main content -->
+    <section style="margin-left: 20px">
+
+        <br />
+        <a href="/WriterPanelHeading/HeadingAdded/" class="btn btn-outline-success form-control"> Yeni Başlık Ekle </a>
+
+        <div class="card"></div>
+
+
+
+            @ViewBag.sss
+            <section style="scroll-margin-top:20px"></section>
+            <!-- Default box -->
+            <div class="card">
+                <section style="scroll-margin-top:20px"></section>
+                <div class="card-header">
+                    <h3 class="card-title font-weight-bold">Aktif Başlıklar</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fas fa-plus"></i>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="card-body p-0">
+                    <table class="table table-striped projects">
+                        <thead>
+                            <tr>
+                                <th style="width: 4%">
+                                    #
+                                </th>
+                                <th style="width: 25%">
+                                    Başlık Adı
+                                </th>
+                                <th style="width: 10%">
+                                    Yazar
+                                </th>
+                                <th style="width: 15%">
+                                    Başlık Tarih
+                                </th>
+                                <th style="width: 5%">
+                                    Kategori
+                                </th>
+                                <th style="width: 10%">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                if (item.Category.CategoryName == "Konser")
+                                {
+                                    color = "badge badge-warning";
+                                }
+                                if (item.Category.CategoryName == "Motosiklet Turu")
+                                {
+                                    color = "badge badge-primary";
+                                }
+                                if (item.Category.CategoryName == "Üniversite")
+                                {
+                                    color = "badge badge-danger";
+                                }
+                                if (item.Category.CategoryName == "Spor")
+                                {
+                                    color = "badge badge-success";
+                                }
+                                if (item.Category.CategoryName == "Kulüpler")
+                                {
+                                    color = "badge badge-dark";
+                                }
+
+
+                                <tr>
+                                    <td>
+                                        @item.HeadingID
+                                    </td>
+
+
+                                    <td>
+                                        @item.HeadingName
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline text-left">
+                                            <li class="list-inline-item text-left">
+                                                <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage" />
+                                            </li>
+                                        </ul>
+                                        <p class="font-weight-bold text-left"> @item.Writer.WriterName</p>
+                                    </td>
+                                    <td>
+                                        @item.HeadingDate
+                                    </td>
+                                    <td>
+                                        <span class="@color"> @item.Category.CategoryName </span>
+                                    </td>
+                                    <td>
+                                    <td class="project-actions text-center">
+
+
+                                        <a class="btn btn-danger btn-danger" href="/WriterPanelHeading/DeleteHeading/@item.HeadingID">
+                                            <i class="fas fa-thumbs-down">
+                                            </i>
+                                            Pasif Yap
+                                        </a>
+                                    </td>
+
+
+                                </tr>
+
+                            }
+
+
+
+                        </tbody>
+                    </table>
+
+
+
+
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+    <!-- Main content -->
+    <section  style="margin-left: 20px">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title font-weight-bold">Pasif Başlıklar</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-plus"></i>
+                    </button>
+
+                </div>
+            </div>
+            <div class="card-body p-0 ">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 4%">
+                                #
+                            </th>
+                            <th style="width: 25%">
+                                Başlık Adı
+                            </th>
+                            <th style="width: 10%">
+                                Yazar
+                            </th>
+                            <th style="width: 15%">
+                                Başlık Tarih
+                            </th>
+                            <th style="width: 5%">
+                                Kategori
+                            </th>
+                            <th style="width: 10%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in (List<Heading>)ViewBag.defS)
+                        {
+                            if (item.Category.CategoryName == "Konser")
+                            {
+                                color = "badge badge-warning";
+                            }
+                            if (item.Category.CategoryName == "Motosiklet Turu")
+                            {
+                                color = "badge badge-primary";
+                            }
+                            if (item.Category.CategoryName == "Üniversite")
+                            {
+                                color = "badge badge-danger";
+                            }
+                            if (item.Category.CategoryName == "Spor")
+                            {
+                                color = "badge badge-success";
+                            }
+                            if (item.Category.CategoryName == "Kulüpler")
+                            {
+                                color = "badge badge-dark";
+                            }
+
+                            if (true)
+                            {
+
+                            }
+
+                            <tr>
+                                <td>
+                                    @item.HeadingID
+                                </td>
+
+
+                                <td>
+                                    @item.HeadingName
+                                </td>
+                                <td>
+                                    <ul class="list-inline text-left">
+                                        <li class="list-inline-item">
+                                            <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage" />
+                                        </li>
+                                    </ul>
+                                    <p class="font-weight-bold text-left"> @item.Writer.WriterName</p>
+                                </td>
+                                <td>
+                                    @item.HeadingDate
+                                </td>
+                                <td>
+                                    <span class="@color"> @item.Category.CategoryName </span>
+                                </td>
+                                <td>
+                                <td class="project-actions text-center">
+
+                                    <a class="btn btn-outline-success" href="#">
+                                        <i class="fas fa-check">
+                                        </i>
+                                        Aktif Olması Bekleniyor
+                                    </a>
+
+                                </td>
+
+
+                            </tr>
+
+                        }
+
+
+
+                    </tbody>
+                </table>
+
+
+
+
+
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+
+
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/js/demo.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+@*<table class="table table-bordered">
+
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Başlık Ad
+            </th>
+            <th>
+                Başlık Tarih
+            </th>
+            <th>
+                Yazar
+            </th>
+            <th>
+                Kategori
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.HeadingID
+                </td>
+                <td>
+                    @item.HeadingName
+                </td>
+                <td>
+                    @item.HeadingDate
+                </td>
+                <td>
+                    @item.Writer.WriterName
+                </td>
+                <td>
+                    @item.Category.CategoryName
+                </td>
+            </tr>
+
+        }
+    </table>
+    <br />*@
+

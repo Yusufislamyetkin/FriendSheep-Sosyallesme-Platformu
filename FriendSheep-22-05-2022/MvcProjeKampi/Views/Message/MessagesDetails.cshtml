@@ -1,0 +1,118 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewBag.Title = "MessagesDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Read Mail</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+
+        <section class="card-header">
+            <div>
+                <br />
+            </div>
+        </section>
+
+        <section class="content">
+
+            <div class="row">
+
+                @Html.Action("MessageViewList", "AdminContact")
+
+
+
+
+                <div class="col-md-9">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+
+
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
+                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
+                            </div>
+                            <h4>@Html.DisplayFor(x => x.Subjet)</h4>
+                        </div>
+                        <!-- /.card-header -->
+
+
+                        <div class="card-body p-0">
+                            <div class="mailbox-read-info">
+
+                                <h6>
+                                    Kimden:  @Html.DisplayFor(x => x.SenderMail)
+                                    Alıcı: @Html.DisplayFor(x => x.ReceiverMail)
+                                    <span class="mailbox-read-time float-right"> @Html.DisplayFor(x => x.MessageDatetime)</span>
+                                </h6>
+                            </div>
+                            <!-- /.mailbox-read-info -->
+                            <!-- /.mailbox-controls -->
+                            <div class="mailbox-read-message">
+
+                                @Html.DisplayFor(x => x.MessageContent)
+
+                            </div>
+                            <!-- /.mailbox-read-message -->
+                        </div>
+
+
+
+                        <!-- /.card-footer -->
+                        <div class="card-footer">
+                            <div class="float-right">
+                                <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> Yanıtla</button>
+                                <button type="button" class="btn btn-default"><i class="fas fa-share"></i> İleri</button>
+                            </div>
+                            <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Sil</button>
+                            <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Yazdır</button>
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                </div>
+                <!-- /.card -->
+                <!-- /. </div>col -->
+                <!-- /.row -->
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>

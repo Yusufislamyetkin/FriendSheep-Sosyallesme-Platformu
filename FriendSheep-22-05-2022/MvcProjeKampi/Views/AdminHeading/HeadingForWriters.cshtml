@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "HeadingForWriters";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div>   </div>
+</section>
+
+<h2 class="font text-bold">Yazarın Başlıkları</h2>
+<div>
+    <br />  
+    <br />  
+</div>
+
+@foreach (var item in Model)
+{
+
+
+<div class="post">
+    <div class="user-block">
+        <img class="img-circle img-bordered-sm" src="@item.Writer.WriterImage" alt="user image">
+        <span class="username">
+            <a href="#">@item.Writer.WriterName</a>
+        </span>
+        <span class="description">@item.HeadingDate</span>
+    </div>
+    <!-- /.user-block -->
+    <p class="font text-bold">
+        @item.HeadingName
+    </p>
+
+</div>}

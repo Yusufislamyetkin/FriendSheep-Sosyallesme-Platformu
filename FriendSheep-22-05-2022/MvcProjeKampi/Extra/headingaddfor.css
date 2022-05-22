@@ -1,0 +1,116 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    background-color: white
+}
+
+.container {
+    background-color: blueviolet;
+    border-radius: 10px
+}
+
+h2 {
+    color: navy
+}
+
+.text-muted {
+    font-family: 'Ubuntu', sans-serif
+}
+
+.fa-map-marker,
+.fa-phone,
+.fa-envelope {
+    font-size: 25px;
+    font-weight: bold
+}
+
+.icon {
+    color: rgb(105, 27, 179)
+}
+
+.contact:hover {
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative
+}
+
+form .container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto
+}
+
+input,
+textarea,
+.form-control {
+    outline: none;
+    border: none
+}
+
+.input-field {
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px
+}
+
+    .input-field:hover {
+        border: 2px solid rgb(105, 27, 179);
+        color: rgb(105, 27, 179);
+        cursor: pointer
+    }
+
+label {
+    font-weight: 500
+}
+
+.fa-mobile {
+    font-size: 20px
+}
+
+#msg {
+    height: 220px
+}
+
+.btn {
+    background-color: rgb(105, 27, 179);
+    color: #fff;
+    padding: 5px 10px;
+    width: 200px;
+    margin: 10px auto
+}
+
+.mobile-info {
+    display: none
+}
+
+@media(min-width:992px) and (max-width:1199px) {
+    form {
+        width: 75%
+    }
+
+    .container {
+        margin-top: 50px
+    }
+}
+
+@media(max-width:767px) {
+    .mobile-info {
+        display: inline
+    }
+
+    .contact-info {
+        display: none
+    }
+
+    .contact {
+        margin: 10px 0;
+        border: 1px solid rgb(105, 27, 179);
+        border-radius: 5px
+    }
+}

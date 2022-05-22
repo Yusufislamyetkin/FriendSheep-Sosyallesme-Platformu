@@ -1,0 +1,202 @@
+﻿@using EntityLayer.Concrete
+@model List<Content>
+
+
+@{
+    ViewBag.Title = "TimeLine";
+    Layout = "~/Views/Shared/_WriterNewLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | User Profile</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            @*<li class="breadcrumb-item"><a href="#">Bulunduğun Bölgeyi Seç</a></li>*@
+
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+
+
+
+                        <!-- Profile Image -->
+                        <div class="card card-purple card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+                                    <img class="card-img img-fluid card-img-bottom"
+                                         src="~/Extra/login-form-20/images/bg.jpg"
+                                         alt="User profile picture">
+                                </div>
+
+                                <br />
+                                <h3 class="profile-username text-center font-weight-bolder"> Keşfet </h3>
+
+                                <p class="text-muted text-center">Tüm Kategori,Başlık Ve İçeriklerin Yayın Alanı</p>
+
+                                <ul class="list-group list-group-unbordered mb-3">
+                                    <li class="list-group-item">
+                                        <b>Keşfet Toplam İçerik Sayısı</b> <a class="float-right">@ViewBag.discovercontentcount</a>
+                                    </li>
+
+
+                                </ul>
+
+
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                        <!-- About Me Box -->
+                        <div class="card card-purple">
+                            <div class="card-header">
+                                <h3 class="card-title">Bilgi Alanı</h3>
+                            </div>
+                            <br />
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <strong><i class="fas fa-book mr-1"></i> İçerikler</strong>
+
+                                <p class="text-muted">
+                                    Keşfetteki akışlar anlık olarak paylaşılır. En güncel paylaşımlar en üstte yer alır.
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fas fa-map-marker-alt mr-1"></i> Konum </strong>
+
+                                <p class="text-muted">İstanbul-Ankara-İzmir-Eskişehir</p>
+
+                                <hr>
+
+                                <strong><i class="fas fa-pencil-alt mr-1"></i> Dikkat</strong>
+
+                                <p class="text-muted">
+                                    <span class="tag tag-danger">Yalnızca güvenebildiğiniz insanlarla buluşun.</span>
+
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="far fa-file-alt mr-1"></i> Bilgilendirme</strong>
+
+                                <p class="text-muted">Etkinlik,organizsyon ve kalabalık ortamlarda yalnız kalmayın. Arkadaşlarınız burda sizinle buluşmak için bekliyor :)</p>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-9">
+                        <div class="card">
+
+
+
+                            <div class="card-body">
+
+
+
+
+
+
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="timeline">
+                                    <!-- The timeline -->
+                                    <div class="timeline timeline-inverse">
+                                        <hr style="color:blueviolet;font-weight:bold" />
+                                        <br />
+                                        <!-- timeline time label -->
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <!-- END timeline item -->
+                                        <!-- timeline item -->
+                                        <!-- END timeline item -->
+                                        <!-- timeline item -->
+
+                                        @foreach (var item in Model)
+                                        {
+
+                                            <div>
+                                                <i class="fas fa-comments bg-purple"></i>
+
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="far fa-clock"></i> @item.ContentDate</span>
+
+                                                    <h3 class="timeline-header"><a href="#">@item.Writer.WriterName</a> ---- @item.Heading.HeadingName</h3>
+
+                                                    <div class="timeline-body">
+                                                        @item.ContentValue
+                                                    </div>
+                                                    <div class="timeline-footer">
+                                                        <a href="/Discover/interactionArea/@item.HeadingID" class="btn btn-outline-warning" style="color:black">Başlığı Gör</a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <div>
+                                            <i class="far fa-clock bg-blue"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- /.tab-pane -->
+                                <!-- /.tab-pane -->
+                                <!-- /.tab-content -->
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- /.nav-tabs-custom -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Mvc Proje Kampı Tema/AdminLTE-3.0.4/dist/js/demo.js"></script>
+</body>
+</html>
